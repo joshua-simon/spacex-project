@@ -1,4 +1,5 @@
 import { ApolloClient, InMemoryCache, gql } from "@apollo/client"
+import Link from 'next/link'
 
 export const getStaticProps = async () => {
 
@@ -30,8 +31,6 @@ export const getStaticProps = async () => {
     `
   });
 
-
-
   return {
     props: {
       launches: data.launchesPast
@@ -40,14 +39,17 @@ export const getStaticProps = async () => {
 }
 
 export default function Home({ launches }) {
-  console.log('launches', launches)
+
   return (
     <div>
       {launches.map(launch => {
         return(
-          <p key = {launch.id}>{launch.mission_name}</p>
+          <Link href = {`/items/${launch.id}`} key = {launch.id}>
+            <a>
+              <p>{launch.mission_name}</p>
+            </a>
+          </Link>
         )
-        
       })}
     </div>
   )
