@@ -4,7 +4,7 @@ import { ApolloClient, InMemoryCache, gql } from "@apollo/client"
 export const LaunchContext = createContext()
 
 
-export const getStaticProps = async () => {
+const getStuff = async () => {
 
   const client = new ApolloClient({
     uri: 'https://api.spacex.land/graphql/',
@@ -34,17 +34,18 @@ export const getStaticProps = async () => {
     `
   });
 
-  return {
-    props: {
-      launches: data.launchesPast
-    }
-  }
+  return data
 }
+
+const data = await getStuff()
+
+
+
 
 const LaunchContextProvider = (props) => {
 
     return(
-        <LaunchContext.Provider value = 'test'>
+        <LaunchContext.Provider value = {data}>
             {props.children}
         </LaunchContext.Provider>
     )

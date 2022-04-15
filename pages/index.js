@@ -5,8 +5,8 @@ import Link from 'next/link'
 
 export const Home = () => {
   
-  const value = useContext(LaunchContext)
-  console.log(value)
+  const data= useContext(LaunchContext)
+  console.log(data)
   return (
     <div>
       this is landing page
