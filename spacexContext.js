@@ -1,54 +1,55 @@
-import { useState,useEffect,createContext } from 'react'
-import { ApolloClient, InMemoryCache, gql } from "@apollo/client"
+import { createContext } from "react";
+import { ApolloClient, InMemoryCache, gql } from "@apollo/client";
 
-export const LaunchContext = createContext()
+export const LaunchContext = createContext();
 
-
-const getStuff = async () => {
-
+const getLaunchData= async () => {
   const client = new ApolloClient({
-    uri: 'https://api.spacex.land/graphql/',
-    cache: new InMemoryCache()
-  })
+    uri: "https://api.spacex.land/graphql/",
+    cache: new InMemoryCache(),
+  });
 
   const { data } = await client.query({
     query: gql`
       query GetLaunches {
-        launchesPast(limit: 10) {
-          id
-          mission_name
-          launch_date_local
-          launch_site {
-            site_name_long
+            launchesPast(limit: 10) {
+              id
+            }
+            launchesUpcoming {
+              id
+              details
+            }
+            missions {
+              id
+              name
+            }
+            payloads {
+              id
+              manufacturer
+              nationality
+            }
+            users {
+              id
+              name
+            }
+            coresPast {
+              reuse_count
+            }
           }
-          links {
-            article_link
-            video_link
-            mission_patch
-          }
-          rocket {
-            rocket_name
-          }
-        }
-      }
-    `
+    `,
   });
 
-  return data
-}
+  return data;
+};
 
-const data = await getStuff()
-
-
-
+const data = await getLaunchData();
 
 const LaunchContextProvider = (props) => {
+  return (
+    <LaunchContext.Provider value={data}>
+      {props.children}
+    </LaunchContext.Provider>
+  );
+};
 
-    return(
-        <LaunchContext.Provider value = {data}>
-            {props.children}
-        </LaunchContext.Provider>
-    )
-}
-
-export default LaunchContextProvider
+export default LaunchContextProvider;
