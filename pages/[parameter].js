@@ -19,7 +19,11 @@ const Items = () => {
 
     return ( 
         <div>
-            this is items
+            {data && path && data[path].map(item => {
+                return(
+                    <p>{item.id}</p>
+                )
+            })}
         </div>
      );
 }
