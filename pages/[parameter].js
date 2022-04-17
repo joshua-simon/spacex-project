@@ -22,7 +22,7 @@ const Items = () => {
         path &&
         data[path].map((item, i) => {
           return (
-            <Link href = {`/item/${item.id}`}>
+            <Link href = {`/item/${path}-${item.id}`}>
               <div key={i} className = 'list-container'>
                 <p>{item.mission_name || item.name || item.manufacturer}</p>
                 <p>{item.launch_date_local}</p>
