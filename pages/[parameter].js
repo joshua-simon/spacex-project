@@ -19,10 +19,9 @@ const Items = () => {
       {data &&
         path &&
         data[path].map((item, i) => {
-          console.log(item.missions[0].name)
           return (
-              <div key={i}>
-                <p>{item.mission_name || item.name || item.manufacturer || item.missions[0].name}</p>
+              <div key={i} className = 'list-container'>
+                <p>{item.mission_name || item.name || item.manufacturer}</p>
                 <p>{item.launch_date_local}</p>
               </div>
           )

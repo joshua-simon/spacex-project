@@ -8,24 +8,24 @@ export const Home = () => {
   const data= useContext(LaunchContext)
 
   return (
-    <div>
+    <div className='link-container'>
         <Link href = '/launchesPast'>
-          <div>{data.launchesPast.length} launches last year</div>
+          <div className='link-container-item'>{data.launchesPast.length} launches last year</div>
         </Link>
         <Link href = '/launchesUpcoming'>
-          <div>{data.launchesUpcoming.length} launches coming up</div>
+          <div className='link-container-item'>{data.launchesUpcoming.length} launches coming up</div>
         </Link>
         <Link href = '/missions'>
-          <div>{data.missions.length} missions to date</div>
+          <div className='link-container-item'>{data.missions.length} missions to date</div>
         </Link>
         <Link href = '/payloads'>
-          <div>{data.payloads.length} payloads to date</div>
+          <div className='link-container-item'>{data.payloads.length} payloads to date</div>
         </Link>
         <Link href = '/users'>
-          <div>{data.users.length} Users</div>
+          <div className='link-container-item'>{data.users.length} Users</div>
         </Link>
         <Link href = '/coresPast'>
-          <div>{data.coresPast.length} Cores re-used to date</div>
+          <div className='link-container-item'>{data.coresPast.length} Cores re-used to date</div>
         </Link>
     </div>
   )

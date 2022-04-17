@@ -1,9 +1,21 @@
+@import url(//db.onlinewebfonts.com/c/05428692254b58ccb090358a3dfecfff?family=Sofia+Pro);
+@font-face {font-family: "Sofia Pro"; src: url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.eot"); src: url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.woff") format("woff"), url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/05428692254b58ccb090358a3dfecfff.svg#Sofia Pro") format("svg"); }
+@font-face {
+    font-family: Helvetica;
+    src: url("../assets/HelveticaNeue-Light.otf") format("opentype");
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: #e9ebee;
+  max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 20px;
+      max-width: 1200px;
 }
 
 a {
@@ -13,4 +25,35 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.link-container{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: minmax(100px, auto);
+  grid-row-gap:2%;
+  grid-column-gap: 1%;
+}
+
+.link-container-item {
+  display:flex;
+  align-items: center;
+  font-family: 'Sofia Pro';
+  color:#587a25;
+  justify-content: center;
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.list-container{
+  background-color: white;
+  font-family: 'Sofia Pro';
+  border-radius: 5px;
+}
+
+.list-container p{
+  padding:1%;
 }
