@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router'
 import { useContext,useState,useEffect } from 'react'
 import { LaunchContext } from '../spacexContext'
+import Link from 'next/link'
+
 
 const Items = () => {
 
@@ -20,10 +22,12 @@ const Items = () => {
         path &&
         data[path].map((item, i) => {
           return (
+            <Link href = {`/item/${item.id}`}>
               <div key={i} className = 'list-container'>
                 <p>{item.mission_name || item.name || item.manufacturer}</p>
                 <p>{item.launch_date_local}</p>
               </div>
+            </Link>
           )
         })}
     </div>
