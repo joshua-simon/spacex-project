@@ -13,11 +13,17 @@ const getLaunchData= async () => {
     query: gql`
       query GetLaunches {
             launchesPast(limit: 10) {
+              mission_name
+              launch_date_local
+              links {
+                article_link
+                video_link
+              }
               id
             }
             launchesUpcoming {
-              id
-              details
+              mission_name
+              launch_date_local
             }
             missions {
               id
@@ -34,6 +40,10 @@ const getLaunchData= async () => {
             }
             coresPast {
               reuse_count
+              missions {
+                flight
+                name
+              }
             }
           }
     `,
